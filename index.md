@@ -38,5 +38,37 @@ We have the CIPIC HRTF Database as our training data, it contains
 	* Left Ear Dim
 	* Right Ear Dim
 
+## Previous Research
+Previous research by Chun atc. (2017) has shown some promising result. While trying to replicate their findings using a Fully Connected Neural Net, althgou we could get __lower MSE (-26.8 dB)__, the estimated HRIR did not resemble the the actual one on its shape, so we reexamin our HRIR.
+
+## Align HRIR
+If we take a closer look at one pair of HRIR, we could see that it is acrually consists of two part that in some way correspond to what we have discuss before, interaural differences and spectral cue. So we could align all the HRIR with respect to its peak, thus, Isolateing these two factors out and estimate them seperately.
+<img src="pic/align.png?raw=true"/>
+
+## Mirrored Dataset
+Now if we just look at the shape of HRIR as we have align them all, we could find something interesting. If we took subject 44's HRIR at same elevation but mirrowed azimuth angle, we can see that these two looks very similar.
+Why is that? We conclude that it is because the shape of HRIR is heavily dependent on one's pinna shape, which shouldn't different much between the same person's left and rigth ear. So what we could do is mirrored our dataset by flipig the right ear data to the left side.
+<img src="pic/mirror.png?raw=true"/>
+
+## Two Seperate Models
+So we have now isolate our HRIR into two core components and mirrored our dataset, we can go ahead and trained our models. For this study, we use a Fully Connected ANN to estimate the shape of our HRIR, and we use a Gradient Boost Tree to estimate ITD.
+<img src="pic/2model.png?raw=true"/>
+
+## Estimated Result
+The neural network showed a significant improve on the HRIR shape.
+<img src="pic/shaper.png?raw=true"/>
+
+The estimation on ITD also demonstrating just a little bit of an error, mostly fall under just noticible differences.
+<img src="pic/delay.png?raw=true"/>
+
+And here is the complete recontructed HRIR from our inference.
+<img src="pic/reconstruct.png?raw=true"/>
+
+## Prensentation and Abstract
+I presented our study on Acoustic Society of America (ASA) 177th Meeting, you can access to the recorded presentation [here](https://acousticalsociety.confex.com/acousticalsociety/2019/meetingapp.cgi/Index/Recording~1)
+
+The abstract of this study is publish in The Journal of the Acoustical Society of America 145, 1883 (2019); [https://doi.org/10.1121/1.5101823](https://doi.org/10.1121/1.5101823)
+
+
 
 

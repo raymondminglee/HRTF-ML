@@ -1,1 +1,11 @@
+logo: ./pic/logo.jpg
+description: >
+  This is my master theis. Through this study, I would like to investigates a personalization 
+  method that estimates people's Head Related Transfer Function (HRTF) using two Machine Learning
+  models. A localization test with a VR headset was conducted to evaluate the perceptual accuracy 
+  of the personalized HRTFs.
+  <br><br>
+
+  <a href='https://raymondminglee.github.io/'>Back to Protfolio</a>
+
 theme: jekyll-theme-minimal
